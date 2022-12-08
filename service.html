@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Service</title>
+    <style>
+        a{
+            color:#fcd581 ;
+        }
+        td{
+            background-color: #feeafa;
+        }
+        th{
+            background-color:#edf6f9 ;
+        }
+    </style>
+</head>
+<body background="#f2e9e4">
+    <div style="background-color: #B30E08;">
+        <img src="logo13.jpeg" alt="loading.." width="200cm" style="float: left; margin-top: 0%; background-color: #990d35;">
+        <p style="color: #fff8e8; text-align: center;">A Quick Start for your Life</p><br>
+        <header>
+        <nav><a href="homepage.html" target="_self">Home</a> <a href="login.html">Login</a> <a href="register.html">Register</a>
+              <a href="contact.html">About us</a>
+        </nav>
+        </div>
+        <div style="padding-left: 40%;">
+        <h4 id="check">Price Details :</h4>
+<table id="demo" >
+</table>
+<br>
+<h4 id="check">Employee Details :</h4>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Experience</th>
+</tr>
+<tr>
+  <td>yoga</td>
+  <td>7</td>
+</tr>
+<tr>
+  <td>satish</td>
+  <td>5</td>
+</tr>
+<tr>
+  <td>madhan</td>
+  <td>4</td>
+</tr>
+<tr>
+  <td id="one"></td>
+  <td id="two"></td>
+</tr>
+</table>
+<input type="text" placeholder="Name" id="name">
+<br>
+<input type="text" placeholder="Experience" id="ex">
+<br>
+<button onclick="add()">ADD</button>
+<br>
+<p id="demo1"></p>
+<br>
+<table id="demo2" ></table>
+
+<br>
+<p id="demo3"> company:</p>
+<script>
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+      myFunction1(this);
+      myFunction2(this);
+      myFunction3(this);
+    }
+  };
+  xmlhttp.open("GET", "Part1.xml", true);
+  xmlhttp.send();
+
+  function add()
+  {
+
+    x = document.getElementById("name").value;
+    document.getElementById("one").innerHTML=x;
+    y = document.getElementById("ex").value;
+    document.getElementById("two").innerHTML=y;
+  }
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Company</th><th>Model</th><th>Price</th></tr>";
+  var x = xmlDoc.getElementsByTagName("company");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("model_name")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+
+
+function myFunction1(xml) {
+            var xmlDoc = xml.responseXML;
+            var root = xmlDoc.documentElement;
+            var currNode = root.childNodes[1];
+           
+            removedNode = currNode.removeChild(currNode.childNodes[3]);
+            document.getElementById("demo1").innerHTML =
+            "Removed Node :<br/>" + removedNode.nodeName;
+        
+        }
+
+        function myFunction2(xml) {
+    var xmlDoc = xml.responseXML;
+    var x,y,z;    
+    var txt = "";
+    x = xmlDoc.getElementsByTagName("name")[0].childNodes[0];
+    y =xmlDoc.getElementsByTagName("model_name")[0].childNodes[0];
+    z =xmlDoc.getElementsByTagName("price")[0].childNodes[0];
+    txt +="Before"+":"+ x.nodeValue +"  | "+ y.nodeValue +"  | "+ z.nodeValue+ "<br>"
+    ;    
+    x.nodeValue = "Hyndai";
+    x = xmlDoc.getElementsByTagName("name")[0].childNodes[0];
+    txt += x.nodeValue +""+ y.nodeValue +"|"+ z.nodeValue+ "<br>";    
+    document.getElementById("demo2").innerHTML = txt;
+}
+        function myFunction3(xml) {
+        var x, i, xmlDoc, txt;
+        xmlDoc = xml.responseXML;
+
+        count=0;
+        x = xmlDoc.documentElement.childNodes;
+        for (i = 0; i < x.length; i++) { 
+            if (x[i].nodeType == 1) {
+                txt += x[i].nodeName + "<br>";   
+                count=count+1;
+            }
+        
+        }
+        total = "company count : "+ count;
+        document.getElementById("demo3").innerHTML = total; 
+        }
+</script>
+</div>
+  
+</body>
+</html>

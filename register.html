@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        .bordered{
+            padding-top: 1px;
+            padding-left: 350px;
+    border:20px thin lightblue;
+        }
+        a{
+        color: #fcd581;
+    }
+    span
+        {
+            display: block;
+            margin-left: 20px;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body style="Background-color: #f2e9e4;">
+    <div style="Background-Color: #B30E08;">
+        <img src="logo13.jpeg" alt="loading.." width="200cm" style="float: left; margin-top: 0%; background-color: #990d35;">
+        <p style="color: #fff8e8; text-align: center;">A Quick Start for your Life</p><br>
+        <header>
+        <nav><a href="homepage.html" target="_self">Home</a> <a href="login.html">Login</a> <a href="register.html">Register</a> 
+            <a href="contact.html">About us</a>
+        </nav>
+        </div>
+   <h2 style="color:#1d3557; padding-left: 30%;">REGISTRATION PAGE</h2>
+    <form class="bordered" name="myform" style="color:#457b9d;">
+        <div>
+            <span></span>
+        </div>
+        <label for="fname" >Name : </label><br>
+        <input type="text" autofocus id="fname" onkeypress='return restrictAlphabets1(event)'><br><br>
+        <label>Please select your Gender</label><br>
+        <input type="radio" id="male">
+        <label for="male">MALE</label><br>
+        <input type="radio" id="female">
+        <label for="female">FEMALE</label><br><br>
+
+        <label for="phone">Phone Number : </label><br>
+        <input type="number" id="phone" onkeypress='return restrictAlphabets(event)'><br><br>
+    
+        <label for="Gmail">Gmail : </label><br>
+        <input type="email" id="Gmail"><br><br>
+        <label for="lan">preferrable language:</label>
+        <select id="lan" >
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+        </select><br><br>
+        <label>Address:</label><br>
+        <textarea name="message" rows="3" cols="30"></textarea>
+        <br><br>
+        <label for="pass">password: </label><br>
+        <input type="password" id="pass"><br><br>
+        <label for="password">Repassword : </label><br>
+        <input type="password" id="password"><br><br>
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1">I agree with term and condition </label><br><br>
+        <button style="background-color: #e63946;" onclick="WriteCookie();" >Submit</button>
+        <br><br>
+    </form>
+    <input type="button" value="Get Cookie" onclick="getCookie()">  
+    
+</body>
+</html>
+
+
+<script>
+    
+    var password=document.getElementById('pass');
+    var repassword=document.getElementById('password');
+    var email=document.getElementById('Gmail');
+    var number=document.getElementById('phone');
+    var span=document.getElementsByTagName('span');
+    email.onkeydown=function()
+    {
+       const regex1=/^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]+)\.university.in$/;
+       const regex2= /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]+)\.college.in$/;
+       if(regex1.test(email.value)||regex2.test(email.value))
+       {
+         span[0].innerText="Your Email is Valid";
+         span[0].style.color="lime";  
+       }
+       else{
+           span[0].innerText="Invalid Email Id";
+           span[0].style.color="red";
+       }}
+       number.onkeydown=function()
+       {
+          const regnum= /^[0-9]{10}$/;
+          if(regnum.test(number.value))
+       {
+         span[0].innerText="Your Number is Valid";
+         span[0].style.color="lime";  
+       }
+       else{
+           span[0].innerText="Invalid Phone Number";
+           span[0].style.color="red";
+       }   
+       }
+
+       password.onkeydown=function()
+       {
+          const regnum7= /^[a-z]/;
+          const regnum8=/[a-z]$/;
+          const regnum9=/[A-Z]/;
+          const regnum10=/[0-9]/;
+          const regnum11=/[~`!@#$%^&*()-_+={}:"<>,.]/;
+          if(regnum7.test(password.value) && regnum8.test(password.value) && regnum9.test(password.value) && regnum10.test(password.value)&& regnum11.test(password.value))
+       {
+        
+         span[0].innerText="Your password is Valid";
+         span[0].style.color="lime";  
+    }
+       else{
+           span[0].innerText="Invalid password Number";
+           span[0].style.color="red";
+       }   
+       }
+
+       repassword.onkeydown=function()
+       {
+          const regnum7= /^[a-z]/;
+          const regnum8=/[a-z]$/;
+          const regnum9=/[A-Z]/;
+          const regnum10=/[0-9]/;
+          const regnum11=/[~`!@#$%^&*()-_+={}:"<>,.]/;
+          if(regnum7.test(repassword.value) && regnum8.test(repassword.value) && regnum9.test(repassword.value) && regnum10.test(repassword.value)&& regnum11.test(repassword.value))
+       {
+        
+         span[0].innerText="Your password is Valid";
+         span[0].style.color="lime";  
+    }
+       else{
+           span[0].innerText="Invalid password Number";
+           span[0].style.color="red";
+       }   
+       }
+
+       function restrictAlphabets1(e) {
+             var x = e.which || e.keycode;
+             if ( x > 57)
+                 return true;
+             else
+                 return false;
+         }
+      
+
+       function restrictAlphabets(e) {
+             var x = e.which || e.keycode;
+             if ((x >= 48 && x<= 57))
+                 return true;
+             else
+                 return false;
+         }
+
+            function WriteCookie() {
+               if( document.myform.name.value == "" ) {
+                  alert("Enter some value!");
+                  return;
+               }
+               var now = new Date();
+               now.setTime(now.getTime() + 1 * 360 * 1000);
+               cookiename = escape(document.myform.fname.value) + ";";
+               document.cookie = "name=" + cookiename;
+               cookiepassword = escape(document.myform.pass.value) + ";";
+               document.cookie = "password=" + cookiepassword;
+              
+            }
+
+function getCookie()  
+{  
+    if(document.cookie.length!=0)  
+    {  
+    alert(document.cookie);  
+    }  
+    else  
+    {  
+        alert("Cookie not avaliable");  
+    }  
+}  
+
+</script>

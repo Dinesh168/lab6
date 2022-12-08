@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <customer>
+        <name>Amith</name>
+        <phn>9876543210</phn>
+        <mail>amith@gamil.com</mail>
+        <usern>amith123</usern>
+        <pass>amith!1875</pass>
+    </customer>
+    <customer>
+        <name>Dhanush</name>
+        <phn>9876543210</phn>
+        <mail>dhanu@gamil.com</mail>
+        <usern>dhanu321</usern>
+        <pass>dhanu@875</pass>
+    </customer>
+</root>
+

@@ -1,0 +1,40 @@
+.tab{
+    font-family: sans-serif;
+    border:2px solid;
+    width:50%;
+    border-radius:8px;
+    padding: 20px;
+    padding: 25px;
+    font-size: 25px;
+    background-color:ivory;
+}
+button{
+    width: 30%;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    background-color: #44add6;
+    font-size: 15px;
+    
+}
+input[type=text]{
+    width:30%;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    background-color:#6cb9d7 ;
+    font-size: 20px;
+}
+input[type=text]:hover{
+    border: 2px solid;
+    transition-delay: 150ms;
+    background-color:#c0d6df ;
+}
+a{
+    text-decoration: none;
+}
+button:hover{
+    border: 2px solid;
+    transition-delay: 150ms;
+    background-color: #69c6eb;
+}

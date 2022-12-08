@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMESHA WITH DINESH</title>
+    <style type=text/css> 
+    a{
+        color: #fcd581;
+    }
+    p
+    {
+        color: beige;
+    }
+    .imga
+    {
+        float: left;
+        width: 50%;
+        height: 50%;
+    } 
+    .menu
+    {
+        float: left;
+        width: 100%;
+
+    }
+    </style>
+</head>
+<body style=" color:#fcd581 ; ">
+    <div style="background-color: #B30E08;">
+    <img src="logo13.jpeg" alt="loading.." width="200cm" style="float: left; margin-top: 0%; background-color: #990d35;">
+    <p style="color: #fff8e8; text-align: center;">A Quick Start for your Life</p><br>
+    <header>
+    <nav><a href="homepage.html" target="_self">Home</a> <a href="login.html">Login</a> <a href="register.html">Register</a>  
+        <a href="contact.html">About us</a>
+    </nav>
+    </div>
+</header>
+<main >
+    <div class="menu" style="background-color: #fff8e8;">
+        <h2 style="color: rgb(231, 166, 69); text-align:center">Our Service</h2>
+        <img src="image.PNG" alt="bike" width="100%" usemap="#workmap">
+        <map name="workmap">
+        <area shape="rect" coords="54,10,200,200" href="service.html">
+        <area shape="rect" coords="344,10,420,200" href="car.html">
+        <area shape="rect" coords="600,10,670,200" href="car.html">
+        <area shape="rect" coords="864,10,920,200" href="car.html">        
+    </map>
+    </div>
+    <div class="imga" >
+    <img src="service1 (1).jpg" alt="image" width="100%">
+    </div>
+    <div class="imga">
+        <img src="service1 (2).jpg" width="100%">
+    </div>
+</main>
+<footer style="background-color: #363534 ">
+    <p>1st floor, SPD Plaza Koramangala Industrial Layout, 5th Block, Koramangala, Bengaluru, Karnataka 560034
+        <br><br> +91-9148098109<br> dinesh@gmail.com<br>© 2021 Targetone Innovations Pvt. Ltd.
+    </p>
+    <div id="location"></div>
+    <script>  
+        var x= document.getElementById("location");  
+        {  
+            if(navigator.geolocation){  
+                navigator.geolocation.getCurrentPosition(showPosition)  
+              }  
+            else  
+            {  
+                 alert("Sorry! your browser is not supporting")  
+             } }  
+           
+         function showPosition(pos){  
+           var x = "(" + "Latitude: " + pos.coords.latitude + ", " + "Longitude: " +    pos.coords.longitude + ")";  
+                    document.getElementById("location").innerHTML = x;  
+         }  
+    </script>  
+
+
+    </footer>
+</body>
+</html>
